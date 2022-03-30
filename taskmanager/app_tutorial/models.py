@@ -9,6 +9,7 @@ class Hotel(models.Model):
     number_stars = models.IntegerField(default=5)
     number_rooms = models.IntegerField(default=3)
     description = models.TextField(null=True, blank=True)
+    url = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return self.name

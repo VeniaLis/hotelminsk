@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html'%}
+{%block content%}
+    <div class="review card">
+      <div class="card-header">
+        {{review.id}}
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">User: {{review.user}}</li>
+        <li class="list-group-item">Text: {{review.text}}</li>
+        <li class="list-group-item">Hotel: {{review.book}}</li>
+      </ul>
+    </div>
+{% endblock %}
