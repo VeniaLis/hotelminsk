@@ -10,10 +10,15 @@ class Hotel(models.Model):
     number_rooms = models.IntegerField(default=3)
     description = models.TextField(null=True, blank=True)
     url = models.URLField(null=True, blank=True)
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d', blank=True)
 
     def __str__(self):
         return self.name
 
+    @property
+    def photo_url(self):
+        if self.photo and hasattr(self.photo, 'url'):
+            return self.photo.url
 
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -22,3 +27,4 @@ class Review(models.Model):
 
     def __str__(self):
         return f'{self.hotel}, {self.user}'
+
